@@ -507,12 +507,12 @@ def main():
             try:
                 ip = cnc.split()[1]
                 port = cnc.split()[2]
-                duration = cnc.split()[3]
+                time = cnc.split()[3]
                 ascii_vro()
-                os.system(f'python3 rawflood.py {ip} {port} {duration} 0 0')
+                os.system(f'python3 rawflood.py {ip} {port} {time} 0 0')
             except IndexError:
-                print('Usage: udp <ip> <port> <duration>')
-                print('Example: udp 1.1.1.1 80 <duration>')
+                print('Usage: udp <ip> <port> <time>')
+                print('Example: udp 1.1.1.1 80 <time>')
 
         elif "udp" in cnc:
             try:
